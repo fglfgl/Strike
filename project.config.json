@@ -1,0 +1,15 @@
+{
+	"description": "方大猪",
+	"setting": {
+		"urlCheck": false,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"appid": "wx75c3df69e5f8900e",
+	"projectname": "fangdazhu",
+	"miniprogramRoot": "./dist",
+	"condition": {}
+}

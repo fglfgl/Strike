@@ -1,0 +1,58 @@
+/*
+ * @Author: fangguiliang 
+ * @Date: 2018-07-10 14:34:32
+ * @Last Modified by: fangguiliang
+ * @Last Modified time: 2018-08-01 14:21:14
+ */
+ 
+<style>
+</style>
+
+<template>
+  <view>
+    <plLoading :showLoading.sync='isLoading' loadingText="loading"></plLoading>
+    <plEmpty :showEmpty.sync='isEmpty' emptyText="没有数据"></plEmpty>
+    <plError :showError.sync='isError' errorText="ERROR" :showReload.sync='showReload'></plError>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import * as API from '../network/api'
+import Placeholder from '../components/common/placeholder'
+
+export default class Reward extends wepy.page {
+  config = {
+    navigationBarTitleText: '红包'
+  }
+
+  data = {
+    isEmpty: true,
+    isLoading: true,
+    isError: true,
+    showReload: true
+  }
+
+  components = {
+    plLoading: Placeholder,
+    plEmpty: Placeholder,
+    plError: Placeholder
+  }
+
+  methods = {
+    onTabItemTap(item) {
+      console.log(item)
+    }
+  }
+
+  onLoad(query) {
+    API.remind('android.store.client', '2.30.0')
+      .then(json => {
+        console.log('result:', json)
+      })
+      .catch(e => {
+        console.log('error:', e)
+      })
+  }
+}
+</script>

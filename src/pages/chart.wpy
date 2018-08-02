@@ -1,0 +1,25 @@
+/*
+ * @Author: fangguiliang 
+ * @Date: 2018-08-01 10:59:54 
+ * @Last Modified by: fangguiliang
+ * @Last Modified time: 2018-08-01 17:33:26
+ */
+
+<style>
+</style>
+
+<template>
+  <view>
+    排行
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Chart extends wepy.page {
+  config = {
+    navigationBarTitleText: '排行'
+  }
+}
+</script>

@@ -1,0 +1,50 @@
+<style lang="less">
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+export default class extends wepy.app {
+  constructor() {
+    super()
+    this.use('promisify')
+  }
+  config = {
+    pages: ['pages/reward', 'pages/game', 'pages/chart', 'pages/mine'],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: '掌上优品',
+      navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      color: '#999999',
+      selectedColor: '#000000',
+      backgroundColor: '#ffffff',
+      borderStyle: 'black',
+      list: [
+        {
+          pagePath: 'pages/reward',
+          text: '红包'
+        },
+        {
+          pagePath: 'pages/game',
+          text: '游戏'
+        },
+        {
+          pagePath: 'pages/chart',
+          text: '排行'
+        },
+        {
+          pagePath: 'pages/mine',
+          text: '我的'
+        }
+      ]
+    }
+  };
+  onLaunch() {
+    console.log('on launch')
+  }
+}
+</script>

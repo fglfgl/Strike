@@ -1,0 +1,91 @@
+/*
+ * @Author: fangguiliang 
+ * @Date: 2018-07-30 19:27:39 
+ * @Last Modified by: fangguiliang
+ * @Last Modified time: 2018-08-01 17:31:07
+ */
+
+<template>
+  <view class="container">
+    <view class="container" wx:if="{{showLoading}}">
+      <image class="icon-loading" src="{{loadingImage}}" />
+      <view class="text-normal">{{loadingText}}</view>
+    </view>
+    <view class="container" wx:if="{{showEmpty}}">
+      <image class="icon-normal" src="{{emptyImage}}" />
+      <view class="text-normal">{{emptyText}}</view>
+    </view>
+    <view class="container" wx:if="{{showError}}">
+      <image class="icon-normal" src="{{errorImage}}" />
+      <view class="text-error">{{errorText}}</view>
+    </view>
+    <button wx:if="{{showReload}}">重新加载</button>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Placeholder extends wepy.component {
+  props = {
+    showLoading: Boolean,
+    loadingImage: {
+      type: String,
+      default: '../../images/common/icon_loading_red.png'
+    },
+    loadingText: {
+      type: String,
+      default: '加载中'
+    },
+    showEmpty: Boolean,
+    emptyImage: {
+      type: String,
+      default: '../../images/common/icon_empty.png'
+    },
+    emptyText: {
+      type: String,
+      default: '占无数据'
+    },
+    showError: Boolean,
+    errorImage: {
+      type: String,
+      default: '../../images/common/icon_network_empty.png'
+    },
+    errorText: {
+      type: String,
+      default: '加载错误'
+    },
+    showReload: Boolean
+  };
+}
+</script>
+
+<style lang="less">
+.container {
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.icon-normal {
+  width: 120rpx;
+  height: 120rpx;
+  display: block;
+  margin: 0 auto;
+}
+.icon-loading {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin: 0 auto;
+}
+.text-normal {
+  font-size: 26rpx;
+  color: #888888;
+  margin-top: 20rpx;
+}
+.text-error {
+  font-size: 26rpx;
+  color: #f30606;
+  margin-top: 20rpx;
+}
+</style>
